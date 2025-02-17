@@ -1,0 +1,8 @@
+{
+  "name": "Jane",
+  "age": 25,
+  "city": "Osaka",
+  "email": "jane@example.com",
+  "phone": "123-456-7890",
+  "country": "Japan"
+}
