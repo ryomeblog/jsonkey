@@ -14,9 +14,8 @@ async function processJsonFiles(file1Path, file2Path, outputPath) {
         // 4. JSONファイル1のキーに基づいてJSONファイル2から値を抽出
         const result = {};
         keys.forEach(key => {
-            if (key in json2) {
-                result[key] = json2[key];
-            }
+            // キーがjson2にある場合はjson2の値を、ない場合はjson1の値を使用
+            result[key] = key in json2 ? json2[key] : json1[key];
         });
         
         // 5. 新しいJSONファイルを作成

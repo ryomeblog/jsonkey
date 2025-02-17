@@ -5,7 +5,9 @@
 ## 機能
 
 1. 1つ目のJSONファイルからすべてのキーを抽出
-2. 2つ目のJSONファイルから、1つ目のファイルのキーに一致する値を取得
+2. キーの照合処理：
+   - キーが両方のファイルに存在する場合：2つ目のJSONファイルの値を使用
+   - キーが2つ目のファイルに存在しない場合：1つ目のJSONファイルの値を使用
 3. 抽出したキーと値のペアを新しいJSONファイルに保存
 
 ## 必要条件
@@ -39,7 +41,8 @@ node index.js <jsonファイル1のパス> <jsonファイル2のパス> <出力�
   "name": "John",
   "age": 30,
   "city": "Tokyo",
-  "email": "john@example.com"
+  "email": "john@example.com",
+  "hobby": "reading"
 }
 ```
 
@@ -55,6 +58,17 @@ node index.js <jsonファイル1のパス> <jsonファイル2のパス> <出力�
 }
 ```
 
+sample2.jsonにないキー"hobby"を追加したsample1.jsonの例：
+```json
+{
+  "name": "John",
+  "age": 30,
+  "city": "Tokyo",
+  "email": "john@example.com",
+  "hobby": "reading"
+}
+```
+
 ### コマンド実行
 ```bash
 node index.js sample1.json sample2.json output.json
@@ -67,6 +81,8 @@ node index.js sample1.json sample2.json output.json
   "age": 25,
   "city": "Osaka",
   "email": "jane@example.com"
+,
+  "hobby": "reading"
 }
 ```
 
